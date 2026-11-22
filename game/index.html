@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMBERFALL DUEL — 4-house card battler</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <section id="screen-title" class="screen active">
+    <div class="title-ember">🔥</div>
+    <h1>EMBERFALL<br>DUEL</h1>
+    <p class="tagline">Four houses. One Warden. Thirty hit points each.</p>
+    <p class="howto">Play cards with keys 1–5 or click them. Space ends your turn.<br>
+    Two cards of one house in a turn trigger a CHAIN bonus (+3).<br>
+    The Warden always shows its next move — read it, then answer.</p>
+    <button id="start-btn" class="big-btn">Enter / click to play</button>
+    <p class="hint">Enter to start · M mute · R restart</p>
+  </section>
+
+  <section id="screen-table" class="screen">
+    <div class="table-top">
+      <div class="fighter warden-side">
+        <div class="fighter-name">🔥 ASHEN WARDEN</div>
+        <div class="hp-bar"><div id="warden-hp-fill" class="hp-fill warden"></div></div>
+        <div class="hp-row"><span id="warden-hp-text">30 / 30</span><span id="warden-block" class="block-badge"></span></div>
+      </div>
+      <div id="warden-hand" class="warden-hand"></div>
+      <div id="warden-intent" class="intent"></div>
+    </div>
+
+    <div class="table-middle">
+      <div id="turn-label" class="turn-label">Turn 1</div>
+      <div id="chain-toast" class="chain-toast"></div>
+      <div id="battle-log" class="battle-log"></div>
+    </div>
+
+    <div class="table-bottom">
+      <div class="fighter player-side">
+        <div class="fighter-name">🛡️ YOU</div>
+        <div class="hp-bar"><div id="player-hp-fill" class="hp-fill player"></div></div>
+        <div class="hp-row"><span id="player-hp-text">30 / 30</span><span id="player-block" class="block-badge"></span></div>
+        <div class="energy-row"><span id="energy-label">Energy 3 / 3</span><span id="energy-crystals" class="crystals"></span></div>
+      </div>
+      <div id="player-hand" class="player-hand"></div>
+      <div class="controls">
+        <button id="end-turn-btn" class="end-btn">End Turn ⏎</button>
+        <button id="mute-btn" class="mute-btn">🔊 Sound on (M)</button>
+        <p class="controls-hint">1–5 play a card · Space ends turn · R restart</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-win" class="screen">
+    <div class="end-ember">🏆</div>
+    <h1 class="win-title">VICTORY</h1>
+    <p class="end-sub">The Warden falls — the embers are yours.</p>
+    <p id="win-stats" class="end-stats"></p>
+    <button id="again-win-btn" class="big-btn">Play again (Enter)</button>
+  </section>
+
+  <section id="screen-loss" class="screen">
+    <div class="end-ember">🌑</div>
+    <h1 class="loss-title">DEFEAT</h1>
+    <p class="end-sub">The embers fade — the Warden stands.</p>
+    <p id="loss-stats" class="end-stats"></p>
+    <button id="again-loss-btn" class="big-btn">Try again (Enter)</button>
+  </section>
+
+</div>
+<script src="js/cards.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/render.js"></script>
+<script src="js/shots.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
